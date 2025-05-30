@@ -1,1 +1,1 @@
-### Aim of the experiment
+### To Study of Non - sinusoidal oscillators 

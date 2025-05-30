@@ -1,13 +1,610 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Sinusoidal Oscillator Simulation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .control-panel {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f0f8ff;
+            border-radius: 5px;
+        }
+        
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            min-width: 200px;
+        }
+        
+        label {
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        input[type="range"], input[type="number"] {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        #clearBtn {
+            background-color: #e74c3c;
+        }
+        
+        #clearBtn:hover {
+            background-color: #c0392b;
+        }
+        
+        .graph-container {
+            width: 100%;
+            height: 300px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        canvas {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .hidden-section {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            background-color: #f9f9f9;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        
+        .hidden-section.expanded {
+            max-height: 500px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            overflow-y: auto;
+        }
+        
+        .toggle-btn {
+            background-color: #2ecc71;
+            margin-bottom: 10px;
+        }
+        
+        .toggle-btn:hover {
+            background-color: #27ae60;
+        }
+        
+        .toggle-btn.manual {
+            background-color: #9b59b6;
+        }
+        
+        .toggle-btn.manual:hover {
+            background-color: #8e44ad;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-top: 15px;
+        }
+        
+        .instruction-step {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .instruction-step:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+    </style>
 </head>
 <body>
-		<!-- Your code goes here-->
+    <h1>Non-Sinusoidal Oscillator Simulation</h1>
+    
+    <button class="toggle-btn" onclick="toggleSection('intro')">Show/Hide Introduction</button>
+    
+    <div id="intro" class="hidden-section">
+        <h2 class="section-title">About Non-Sinusoidal Oscillators</h2>
+        <p>Non-sinusoidal oscillators generate waveforms that are not pure sine waves. Common examples include square waves, triangle waves, and sawtooth waves. These oscillators are fundamental in digital electronics, signal processing, and communication systems.</p>
+        
+        <h3 class="section-title">Square Wave Characteristics:</h3>
+        <ul>
+            <li><strong>Amplitude:</strong> The peak value of the waveform</li>
+            <li><strong>Frequency:</strong> Number of cycles per second (Hz)</li>
+            <li><strong>Duty Cycle:</strong> Percentage of time the signal is high in one period</li>
+        </ul>
+        
+        <p>This simulation demonstrates a square wave oscillator with adjustable parameters. The observation table displays calculated values at specific time points.</p>
+    </div>
+    
+    <button class="toggle-btn manual" onclick="toggleSection('manual')">Show/Hide Instruction Manual</button>
+    
+    <div id="manual" class="hidden-section">
+        <h2 class="section-title">Instruction Manual</h2>
+        
+        <h3 class="section-title">Getting Started</h3>
+        <div class="instruction-step">Click "Start Simulation" to begin with default parameters</div>
+        <div class="instruction-step">Adjust parameters using sliders or input fields</div>
+        <div class="instruction-step">View the waveform in the graph area</div>
+        <div class="instruction-step">Refer to the observation table for detailed measurements</div>
+        
+        <h3 class="section-title">Controls Explanation</h3>
+        <div class="instruction-step"><strong>Frequency:</strong> Controls how many cycles occur per second (0.1Hz to 10Hz)</div>
+        <div class="instruction-step"><strong>Amplitude:</strong> Sets the peak value of the waveform (1 to 10)</div>
+        <div class="instruction-step"><strong>Duty Cycle:</strong> Determines what percentage of each period is spent in the HIGH state (10% to 90%)</div>
+        <div class="instruction-step"><strong>Time Range:</strong> Sets how many seconds of waveform to display (1s to 10s)</div>
+        
+        <h3 class="section-title">Observation Table</h3>
+        <div class="instruction-step">Shows exact values at key points in the waveform</div>
+        <div class="instruction-step">Displays transition points between HIGH and LOW states</div>
+        <div class="instruction-step">Includes calculated period and frequency for verification</div>
+        
+        <h3 class="section-title">Tips for Effective Use</h3>
+        <div class="instruction-step">Start with low frequency (1Hz or less) to clearly see the waveform</div>
+        <div class="instruction-step">Experiment with extreme duty cycles (10% or 90%) to see their effect</div>
+        <div class="instruction-step">Use the table to verify your understanding of the parameters</div>
+        <div class="instruction-step">Click "Clear" to reset the simulation at any time</div>
+    </div>
+    
+    <div class="container">
+        <div class="control-panel">
+            <div class="control-group">
+                <label for="frequency">Frequency (Hz):</label>
+                <input type="range" id="frequency" min="0.1" max="10" step="0.1" value="1">
+                <input type="number" id="frequencyValue" min="0.1" max="10" step="0.1" value="1" onchange="updateFrequency(this.value)">
+            </div>
+            
+            <div class="control-group">
+                <label for="amplitude">Amplitude:</label>
+                <input type="range" id="amplitude" min="1" max="10" step="0.5" value="5">
+                <input type="number" id="amplitudeValue" min="1" max="10" step="0.5" value="5" onchange="updateAmplitude(this.value)">
+            </div>
+            
+            <div class="control-group">
+                <label for="dutyCycle">Duty Cycle (%):</label>
+                <input type="range" id="dutyCycle" min="10" max="90" step="5" value="50">
+                <input type="number" id="dutyCycleValue" min="10" max="90" step="5" value="50" onchange="updateDutyCycle(this.value)">
+            </div>
+            
+            <div class="control-group">
+                <label for="timeRange">Time Range (s):</label>
+                <input type="range" id="timeRange" min="1" max="10" step="1" value="5">
+                <input type="number" id="timeRangeValue" min="1" max="10" step="1" value="5" onchange="updateTimeRange(this.value)">
+            </div>
+            
+            <button id="startBtn" onclick="startSimulation()">Start Simulation</button>
+            <button id="clearBtn" onclick="clearSimulation()">Clear</button>
+        </div>
+        
+        <div class="graph-container">
+            <canvas id="oscillatorGraph"></canvas>
+        </div>
+        
+        <h2>Observation Table</h2>
+        <table id="observationTable">
+            <thead>
+                <tr>
+                    <th>Time (s)</th>
+                    <th>Amplitude</th>
+                    <th>State</th>
+                    <th>Period (s)</th>
+                    <th>Frequency (Hz)</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Table content will be generated by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+    
+    <footer>
+        Non-Sinusoidal Oscillator Simulation &copy; 2023 | Created with HTML, CSS, and JavaScript
+    </footer>
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
+    <script>
+        // DOM elements
+        const frequencySlider = document.getElementById('frequency');
+        const frequencyValue = document.getElementById('frequencyValue');
+        const amplitudeSlider = document.getElementById('amplitude');
+        const amplitudeValue = document.getElementById('amplitudeValue');
+        const dutyCycleSlider = document.getElementById('dutyCycle');
+        const dutyCycleValue = document.getElementById('dutyCycleValue');
+        const timeRangeSlider = document.getElementById('timeRange');
+        const timeRangeValue = document.getElementById('timeRangeValue');
+        const canvas = document.getElementById('oscillatorGraph');
+        const ctx = canvas.getContext('2d');
+        const tableBody = document.getElementById('tableBody');
+        
+        // Simulation variables
+        let animationId = null;
+        let startTime = null;
+        let currentTime = 0;
+        let isRunning = false;
+        let dataPoints = [];
+        
+        // Initialize canvas size
+        function initCanvas() {
+            const container = canvas.parentElement;
+            canvas.width = container.offsetWidth - 2; // Account for border
+            canvas.height = container.offsetHeight;
+        }
+        
+        // Toggle section visibility
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.classList.toggle('expanded');
+        }
+        
+        // Update frequency value from slider
+        frequencySlider.addEventListener('input', function() {
+            frequencyValue.value = this.value;
+            if (isRunning) {
+                restartSimulation();
+            }
+        });
+        
+        // Update frequency slider from input
+        frequencyValue.addEventListener('input', function() {
+            frequencySlider.value = this.value;
+            if (isRunning) {
+                restartSimulation();
+            }
+        });
+        
+        // Update amplitude value from slider
+        amplitudeSlider.addEventListener('input', function() {
+            amplitudeValue.value = this.value;
+            if (isRunning) {
+                drawWaveform();
+            }
+        });
+        
+        // Update amplitude slider from input
+        amplitudeValue.addEventListener('input', function() {
+            amplitudeSlider.value = this.value;
+            if (isRunning) {
+                drawWaveform();
+            }
+        });
+        
+        // Update duty cycle value from slider
+        dutyCycleSlider.addEventListener('input', function() {
+            dutyCycleValue.value = this.value;
+            if (isRunning) {
+                restartSimulation();
+            }
+        });
+        
+        // Update duty cycle slider from input
+        dutyCycleValue.addEventListener('input', function() {
+            dutyCycleSlider.value = this.value;
+            if (isRunning) {
+                restartSimulation();
+            }
+        });
+        
+        // Update time range value from slider
+        timeRangeSlider.addEventListener('input', function() {
+            timeRangeValue.value = this.value;
+            if (isRunning) {
+                drawWaveform();
+            }
+        });
+        
+        // Update time range slider from input
+        timeRangeValue.addEventListener('input', function() {
+            timeRangeSlider.value = this.value;
+            if (isRunning) {
+                drawWaveform();
+            }
+        });
+        
+        // Calculate square wave value at given time
+        function calculateSquareWave(time, frequency, amplitude, dutyCycle) {
+            const period = 1 / frequency;
+            const cyclePosition = time % period;
+            const dutyTime = (dutyCycle / 100) * period;
+            
+            return cyclePosition < dutyTime ? amplitude : -amplitude;
+        }
+        
+        // Generate data points for the waveform
+        function generateDataPoints() {
+            const frequency = parseFloat(frequencyValue.value);
+            const amplitude = parseFloat(amplitudeValue.value);
+            const dutyCycle = parseFloat(dutyCycleValue.value);
+            const timeRange = parseFloat(timeRangeValue.value);
+            
+            dataPoints = [];
+            const steps = 500; // Number of points to calculate
+            const timeStep = timeRange / steps;
+            
+            for (let i = 0; i <= steps; i++) {
+                const time = i * timeStep;
+                const value = calculateSquareWave(time, frequency, amplitude, dutyCycle);
+                dataPoints.push({ time, value });
+            }
+            
+            return dataPoints;
+        }
+        
+        // Draw the waveform on canvas
+        function drawWaveform() {
+            const frequency = parseFloat(frequencyValue.value);
+            const amplitude = parseFloat(amplitudeValue.value);
+            const timeRange = parseFloat(timeRangeValue.value);
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Set up drawing style
+            ctx.strokeStyle = '#3498db';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            
+            // Calculate scaling factors
+            const xScale = canvas.width / timeRange;
+            const yScale = canvas.height / (amplitude * 2 + 2);
+            const yOffset = canvas.height / 2;
+            
+            // Draw x and y axes
+            ctx.strokeStyle = '#95a5a6';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(0, yOffset);
+            ctx.lineTo(canvas.width, yOffset);
+            ctx.stroke();
+            
+            // Draw waveform
+            ctx.strokeStyle = '#3498db';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            
+            let firstPoint = true;
+            for (const point of dataPoints) {
+                const x = point.time * xScale;
+                const y = yOffset - point.value * yScale;
+                
+                if (firstPoint) {
+                    ctx.moveTo(x, y);
+                    firstPoint = false;
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            
+            ctx.stroke();
+            
+            // Add labels
+            ctx.fillStyle = '#2c3e50';
+            ctx.font = '12px Arial';
+            ctx.textAlign = 'center';
+            
+            // X-axis labels
+            for (let i = 0; i <= timeRange; i++) {
+                const x = i * (canvas.width / timeRange);
+                ctx.fillText(i + 's', x, yOffset + 15);
+                ctx.beginPath();
+                ctx.moveTo(x, yOffset - 5);
+                ctx.lineTo(x, yOffset + 5);
+                ctx.stroke();
+            }
+            
+            // Y-axis labels
+            ctx.textAlign = 'right';
+            ctx.fillText(amplitude.toFixed(1), 30, yOffset - amplitude * yScale + 4);
+            ctx.fillText((-amplitude).toFixed(1), 30, yOffset + amplitude * yScale + 4);
+            ctx.fillText('0', 30, yOffset + 4);
+        }
+        
+        // Update observation table
+        function updateObservationTable() {
+            const frequency = parseFloat(frequencyValue.value);
+            const amplitude = parseFloat(amplitudeValue.value);
+            const dutyCycle = parseFloat(dutyCycleValue.value);
+            const timeRange = parseFloat(timeRangeValue.value);
+            const period = 1 / frequency;
+            
+            // Clear table
+            tableBody.innerHTML = '';
+            
+            // Add rows for each period
+            const periodsToShow = Math.min(5, Math.floor(timeRange / period));
+            
+            for (let i = 0; i <= periodsToShow; i++) {
+                const time = i * period;
+                const value = calculateSquareWave(time, frequency, amplitude, dutyCycle);
+                const state = value > 0 ? 'HIGH' : 'LOW';
+                
+                // Add row for start of period
+                const row1 = document.createElement('tr');
+                row1.innerHTML = `
+                    <td>${time.toFixed(2)}</td>
+                    <td>${value.toFixed(2)}</td>
+                    <td>${state}</td>
+                    <td>${period.toFixed(4)}</td>
+                    <td>${frequency.toFixed(2)}</td>
+                `;
+                tableBody.appendChild(row1);
+                
+                // Add row for duty cycle transition if not last period
+                if (i < periodsToShow) {
+                    const transitionTime = time + (dutyCycle / 100) * period;
+                    const transitionValue = calculateSquareWave(transitionTime - 0.0001, frequency, amplitude, dutyCycle);
+                    const transitionValue2 = calculateSquareWave(transitionTime + 0.0001, frequency, amplitude, dutyCycle);
+                    
+                    const row2 = document.createElement('tr');
+                    row2.innerHTML = `
+                        <td>${transitionTime.toFixed(2)}</td>
+                        <td>${transitionValue.toFixed(2)} → ${transitionValue2.toFixed(2)}</td>
+                        <td>${transitionValue > 0 ? 'HIGH→LOW' : 'LOW→HIGH'}</td>
+                        <td>${period.toFixed(4)}</td>
+                        <td>${frequency.toFixed(2)}</td>
+                    `;
+                    tableBody.appendChild(row2);
+                }
+            }
+        }
+        
+        // Start the simulation
+        function startSimulation() {
+            if (isRunning) return;
+            
+            isRunning = true;
+            startTime = performance.now();
+            currentTime = 0;
+            
+            generateDataPoints();
+            drawWaveform();
+            updateObservationTable();
+            
+            document.getElementById('startBtn').textContent = 'Running...';
+            document.getElementById('startBtn').disabled = true;
+        }
+        
+        // Restart the simulation with new parameters
+        function restartSimulation() {
+            if (!isRunning) return;
+            
+            generateDataPoints();
+            drawWaveform();
+            updateObservationTable();
+        }
+        
+        // Clear the simulation
+        function clearSimulation() {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+            
+            isRunning = false;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            tableBody.innerHTML = '';
+            
+            document.getElementById('startBtn').textContent = 'Start Simulation';
+            document.getElementById('startBtn').disabled = false;
+        }
+        
+        // Initialize the page
+        window.addEventListener('load', function() {
+            initCanvas();
+            window.addEventListener('resize', function() {
+                initCanvas();
+                if (isRunning) {
+                    drawWaveform();
+                }
+            });
+        });
+        
+        // Helper functions for direct input updates
+        function updateFrequency(value) {
+            frequencySlider.value = value;
+            frequencyValue.value = value;
+            if (isRunning) {
+                restartSimulation();
+            }
+        }
+        
+        function updateAmplitude(value) {
+            amplitudeSlider.value = value;
+            amplitudeValue.value = value;
+            if (isRunning) {
+                drawWaveform();
+            }
+        }
+        
+        function updateDutyCycle(value) {
+            dutyCycleSlider.value = value;
+            dutyCycleValue.value = value;
+            if (isRunning) {
+                restartSimulation();
+            }
+        }
+        
+        function updateTimeRange(value) {
+            timeRangeSlider.value = value;
+            timeRangeValue.value = value;
+            if (isRunning) {
+                drawWaveform();
+            }
+        }
+    </script>
 </body>
 </html>

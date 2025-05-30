@@ -2,37 +2,79 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "Which component typically determines the frequency of a non-sinusoidal oscillator?",
+  
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Transformer",
+        "b": "Resistor-Capacitor(RC) network",
+        "c": "Inductor",
+        "d": "Diode bridge"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+      "answer :": {
+        
+        "b": "Resistor-Capacitor (RC) network"
       },
-      "correctAnswer": "a",
+      "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question":"A bistable multivibrator can be used as:",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": " A waveform generator ",
+        "b": "A frequency multiplier",
+        "c": "A memory storage element (flip-flop)",
+        "d": "A power amplifier"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+      "Answers:": {
+       
+        "c": "A memory storage element (flip-flop)"
       },
       "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+     {
+      "question":"Which logic family can be used to implement a Schmitt trigger oscillator",
+      "answers": {
+        "a": "TTL",
+        "b": "CMOS ",
+        "c": "Both A and B",
+        "d": "NOne of the above "
+      },
+      "Answers:": {
+       
+        "c": "Both A and B"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+     {
+      "question":"The time period of oscillation in a non-sinusoidal RC oscillator depends on",
+      "answers": {
+        "a": "Supply Voltage",
+        "b": "RC time constan",
+        "c": "Load resistance",
+        "d": "Output impedance"
+      },
+      "Answers:": {
+       
+        "b": "RC time-constan"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+     {
+      "question":"Which of the following characteristics does a Schmitt trigger exhibit?",
+      "answers": {
+        "a": " Linear amplification",
+        "b": " Hysteresis",
+        "c": "Phase shift",
+        "d": " Logarithmic response"
+      },
+      "Answers:": {
+       
+        "b": " Hysteresis"
+      },
+      "correctAnswer": "b",
       "difficulty": "beginner"
     }
   ]
