@@ -111,6 +111,47 @@
       },
       correctAnswer: "c"                ///// Write the correct option inside double quotes
     },  
+    {
+      question:"In a Schmitt trigger circuit, hysteresis is used to",  ///// Write the question inside double quotes
+      answers: {
+        a: "Increase the frequency of oscillation",                  ///// Write the option 1 inside double quotes
+        b: " Improve linearity",                  ///// Write the option 2 inside double quotes
+        c: "Provide noise immunity and avoid multiple triggering",                  ///// Write the option 3 inside double quotes
+        d:"Generate triangular waveforms"                   ///// Write the option 4 inside double quotes
+                           ///// Write the option 4 inside double quotes
+      },
+      correctAnswer: "c"                ///// Write the correct option inside double quotes
+    },
+     {
+      question:"Which component in an astable multivibrator primarily determines the time period of oscillation?",  ///// Write the question inside double quotes
+      answers: {
+        a: "Transistor gain",                  ///// Write the option 1 inside double quotes
+        b: "Transformer winding ratio",                  ///// Write the option 2 inside double quotes
+        c: "Resistors and capacitors",                  ///// Write the option 3 inside double quotes
+        d:"Diodes"                   ///// Write the option 4 inside double quotes
+                           ///// Write the option 4 inside double quotes
+      },
+      correctAnswer: "c"                ///// Write the correct option inside double quotes
+    },
+     {
+      question:"A monostable multivibrator has:",  ///// Write the question inside double quotes
+      answers: {
+        a: "No stable states",                  ///// Write the option 1 inside double quotes
+        b: " One stable state and one quasi-stable state",                  ///// Write the option 2 inside double quotes
+        c: "Two stable states",                  ///// Write the option 3 inside double quotes
+        d:"Only a quasi-stable state"                   ///// Write the option 4 inside double quotes
+                           ///// Write the option 4 inside double quotes
+      },
+      correctAnswer: "b"                ///// Write the correct option inside double quotes
+    },  
+     
+   
+      	
+   
+      	  
+   
+      	  
+   
       						                  ///// this line
 
 
