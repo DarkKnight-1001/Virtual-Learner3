@@ -30,54 +30,6 @@
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
-    },
-     
-         "question": " What is the primary application of non-sinusoidal oscillators?",
-      "answers": {
-        "a": "AC power generation",
-        "b": "Signal filtering",
-        "c": "Timing and waveform generation in digital circuits",
-        "d": "Audio signal amplification"
-      },
-       {
-     "Answer :": {
-       
-        "c": "Timing and waveform generation in digital circuits"
-      },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
-    }
-     },
-         "question": " What is the primary application of non-sinusoidal oscillators?",
-      "answers": {
-        "a": "AC power generation",
-        "b": "Signal filtering",
-        "c": "Timing and waveform generation in digital circuits",
-        "d": "Audio signal amplification"
-      },
-       {
-     "Answer :": {
-       
-        "c": "Timing and waveform generation in digital circuits"
-      },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
-    }
-     },
-         "question": " What is the primary application of non-sinusoidal oscillators?",
-      "answers": {
-        "a": "AC power generation",
-        "b": "Signal filtering",
-        "c": "Timing and waveform generation in digital circuits",
-        "d": "Audio signal amplification"
-      },
-       {
-     "Answer :": {
-       
-        "c": "Timing and waveform generation in digital circuits"
-      },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
     }
   ]
 }
