@@ -5,31 +5,31 @@ Study what oscillators are and how they work.
 
 Differentiate between sinusoidal and non-sinusoidal oscillators.
 
-Sinusoidal Oscillators produce smooth sine waves.
+### Sinusoidal Oscillators produce smooth sine waves.
 
-Non-Sinusoidal Oscillators generate waveforms like square, triangular, sawtooth, and pulse waves.
+### Non-Sinusoidal Oscillators generate waveforms like square, triangular, sawtooth, and pulse waves.
 
-Step 2: Learn About Multivibrators
+## Step 2: Learn About Multivibrators
 Study three primary types of multivibrators:
 
-Astable: No stable state, continuous square wave generation.
+## Astable: No stable state, continuous square wave generation.
 
-Monostable: One stable state, outputs a single pulse.
+## Monostable: One stable state, outputs a single pulse.
 
-Bistable: Two stable states, used in flip-flops/memory circuits.
+## Bistable: Two stable states, used in flip-flops/memory circuits.
 
-Step 3: Study Circuit Operation
+### Step 3: Study Circuit Operation
 Learn the circuit diagrams and working principles:
 
-Astable Multivibrator: Based on RC charging/discharging through transistors or logic gates.
+## Astable Multivibrator: Based on RC charging/discharging through transistors or logic gates.
 
-Monostable Multivibrator: Triggered externally, outputs one pulse.
+## Monostable Multivibrator: Triggered externally, outputs one pulse.
 
-Schmitt Trigger: Hysteresis-based comparator circuit for wave shaping.
+## Schmitt Trigger: Hysteresis-based comparator circuit for wave shaping.
 
 Learn about Schmitt Trigger Oscillators, Relaxation Oscillators, etc.
 
-Step 4: Mathematical Analysis
+## Step 4: Mathematical Analysis
 Derive and understand the time period 
 𝑇
 T and frequency 
@@ -61,7 +61,7 @@ T=0.693×(R
  )×C
 Use RC time constants and logic thresholds for timing analysis.
 
-Step 5: Applications and Use Cases
+## Step 5: Applications and Use Cases
 Explore real-world applications:
 
 Clocks
@@ -113,7 +113,7 @@ Connect the circuit to the DC power supply (usually 5V or 9V).
 
 Observe LED blinking or waveform on the oscilloscope.
 
-Step 5: Observe and Record
+## Step 5: Observe and Record
 Use an oscilloscope to observe output waveforms:
 
 Square wave for astable
@@ -126,7 +126,7 @@ Record frequency and time period.
 
 Compare theoretical and practical values.
 
-Step 6: Analysis
+## Step 6: Analysis
 Compare theoretical calculations with practical results.
 
 Note deviations due to tolerance in resistor/capacitor values or supply variations.
