@@ -1,4 +1,4 @@
-### Detailed Theory: Non-Sinusoidal Oscillators
+
 ## 🔹 1. Introduction to Oscillators
 An oscillator is an electronic circuit that generates a periodic, oscillating signal without any input (other than DC power). Oscillators are broadly classified into:
 
