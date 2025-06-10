@@ -1,5 +1,4 @@
-### Procedure
-## Procedure to Study Non-Sinusoidal Oscillators
+
 ## A. Theoretical Study
 Step 1: Understand the Basics
 Study what oscillators are and how they work.
