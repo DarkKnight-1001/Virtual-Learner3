@@ -1,6 +1,6 @@
 
 ## A. Theoretical Study
-Step 1: Understand the Basics
+## Step 1: Understand the Basics
 Study what oscillators are and how they work.
 
 Differentiate between sinusoidal and non-sinusoidal oscillators.
