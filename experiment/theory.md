@@ -107,7 +107,7 @@ Time low (T₂):
 T<sub> 
 2</sub>
 ​
- =0.693×R<sub>2</sub>×C
+ = 0.693×R<sub>2</sub>×C
 Total Time Period (T):
 
 𝑇=𝑇<sub>1</sub>+𝑇<sub>2</sub>
