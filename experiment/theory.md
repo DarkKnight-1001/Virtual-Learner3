@@ -2,9 +2,9 @@
 ## 1. Introduction to Oscillators
 An oscillator is an electronic circuit that generates a periodic, oscillating signal without any input (other than DC power). Oscillators are broadly classified into:
 
-## Sinusoidal Oscillators – Generate smooth, continuous sine waves.
+ Sinusoidal Oscillators – Generate smooth, continuous sine waves.
 
-## Non-Sinusoidal Oscillators – Generate waveforms such as square, rectangular, triangular, and sawtooth.
+Non-Sinusoidal Oscillators – Generate waveforms such as square, rectangular, triangular, and sawtooth.
 
 ## 2. What are Non-Sinusoidal Oscillators?
 Non-sinusoidal oscillators are circuits designed to produce non-sine waveforms, usually with sharp transitions between voltage levels. These waveforms are periodic, but not smooth or sinusoidal. They are widely used in digital systems, timing circuits, pulse generators, and switching devices.
@@ -78,85 +78,85 @@ Schmitt Trigger	Square wave (with hysteresis)
 ✔️ For Astable Multivibrator using 555 Timer:
 Time high (T₁):
 
-𝑇
-1
+𝑇<sub>
+1</sub>
 =
 0.693
 ×
 (
-𝑅
-1
+𝑅<sub>
+1</sub>
 +
-𝑅
-2
+𝑅<sub>
+2</sub>
 )
 ×
 𝐶
-T 
-1
+T<sub> 
+1</sub>
 ​
- =0.693×(R1+R2)×C
+ =0.693×(R<sub>1</sub>+R<sub>2</sub>)×C
 Time low (T₂):
 
-𝑇
-2
+𝑇<sub>
+2</sub>
 =
 0.693
 ×
-𝑅
-2
+𝑅<sub>
+2</sub>
 ×
 𝐶
 T 
 2
 ​
- =0.693×R2×C
+ =0.693×R<sub>2</sub>×C
 Total Time Period (T):
 
 𝑇
 =
-𝑇
-1
+𝑇<sub>
+1</sub>
 +
-𝑇
-2
+𝑇<sub>
+2</sub>
 =
 0.693
 ×
 (
-𝑅
-1
+𝑅<sub>
+1</sub>
 +
 2
-𝑅
-2
+𝑅<sub>
+2</sub>
 )
 ×
 𝐶
-T=T 
-1
+T=T<sub> 
+1</sub>
 ​
- +T 
-2
+ +T<sub> 
+2</sub>
 ​
- =0.693×(R1+2R2)×C
+ =0.693×(R<sub>1</sub>+2R<sub>2</sub>)×C
 Frequency (f):
 
 𝑓
 =
 1.44
 (
-𝑅
-1
+𝑅<sub>
+1</sub>
 +
 2
-𝑅
-2
+𝑅<sub>
+2</sub>
 )
 ×
 𝐶
 f= 
-(R1+2R2)×C
+(R<sub>1</sub>+2R<sub>2</sub>)×C
 1.44
 ​
  
