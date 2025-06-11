@@ -75,11 +75,12 @@ Relaxation	Sawtooth / exponential
 Schmitt Trigger	Square wave (with hysteresis)
 
 ##  6. Mathematical Expressions
-✔️ For Astable Multivibrator using 555 Timer:
+ For Astable Multivibrator using 555 Timer:
 Time high (T₁):
 
 𝑇<sub>
-1</sub>=
+1</sub>
+=
 0.693
 ×
 (
@@ -103,8 +104,8 @@ Time low (T₂):
 2</sub>
 ×
 𝐶
-T 
-2
+T<sub> 
+2</sub>
 ​
  =0.693×R<sub>2</sub>×C
 Total Time Period (T):
@@ -151,20 +152,20 @@ f= (R<sub>1</sub>+2R<sub>2</sub>)×C
 Duty Cycle (%):
 
 𝐷=
-𝑇
-1
+𝑇<sub>
+1</sub>
 𝑇
 ×
 100
 D= 
 T
-T 
-1
+T<sub> 
+1</sub>
 ​
  
 ​
  ×100
-✔️ For Monostable Multivibrator:
+ For Monostable Multivibrator:
 Pulse Width (T):
 
 𝑇=
