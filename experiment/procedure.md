@@ -38,9 +38,8 @@ f formulas for various circuits:
 
 Example for Astable:
 
-𝑇
-=
-0.693
+
+T=0.693
 ×
 (
 𝑅
