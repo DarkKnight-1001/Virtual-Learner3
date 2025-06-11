@@ -1,15 +1,15 @@
 
-## 🔹 1. Introduction to Oscillators
+## 1. Introduction to Oscillators
 An oscillator is an electronic circuit that generates a periodic, oscillating signal without any input (other than DC power). Oscillators are broadly classified into:
 
 ## Sinusoidal Oscillators – Generate smooth, continuous sine waves.
 
 ## Non-Sinusoidal Oscillators – Generate waveforms such as square, rectangular, triangular, and sawtooth.
 
-## 🔹 2. What are Non-Sinusoidal Oscillators?
+## 2. What are Non-Sinusoidal Oscillators?
 Non-sinusoidal oscillators are circuits designed to produce non-sine waveforms, usually with sharp transitions between voltage levels. These waveforms are periodic, but not smooth or sinusoidal. They are widely used in digital systems, timing circuits, pulse generators, and switching devices.
 
-## 🔹 3. Types of Non-Sinusoidal Oscillators
+## 3. Types of Non-Sinusoidal Oscillators
 Non-sinusoidal oscillators are often implemented using multivibrator circuits. These are broadly categorized into:
 
 ## A. Astable Multivibrator
@@ -53,7 +53,7 @@ Uses an op-amp or transistor to charge and discharge a capacitor
 
 Output is usually sawtooth or exponential waveform
 
-## 🔹 4. Working Principle
+## 4. Working Principle
 Non-sinusoidal oscillators work primarily based on charging and discharging of capacitors through resistors, creating time delays that produce sharp transitions in output. The components used to design these oscillators include:
 
 Resistors (R)
@@ -66,7 +66,7 @@ Timers (e.g., 555 IC)
 
 The timing and shape of the output waveform depend on the RC time constants and the switching behavior of the active components.
 
-## 🔹 5. Waveforms Generated
+## 5. Waveforms Generated
 Oscillator Type	Output Waveform
 Astable	Square wave
 Monostable	Single pulse
@@ -74,7 +74,7 @@ Bistable	Digital toggle (0 or 1)
 Relaxation	Sawtooth / exponential
 Schmitt Trigger	Square wave (with hysteresis)
 
-## 🔹 6. Mathematical Expressions
+##  6. Mathematical Expressions
 ✔️ For Astable Multivibrator using 555 Timer:
 Time high (T₁):
 
