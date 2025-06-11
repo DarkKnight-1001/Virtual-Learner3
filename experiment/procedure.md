@@ -44,19 +44,19 @@ Example for Astable:
 ×
 (
 𝑅
-1
+<sub>1</sub>
 +
 2
-𝑅
-2
+𝑅<sub>
+2</sub>
 )
 ×
 𝐶
-T=0.693×(R 
-1
+T=0.693×(R<sub> 
+1</sub>
 ​
- +2R 
-2
+ +2R<sub> 
+2</sub>
 ​
  )×C
 Use RC time constants and logic thresholds for timing analysis.
